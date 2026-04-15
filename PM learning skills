@@ -1,0 +1,296 @@
+---
+name: ai-pm-mastery-10day
+description: >
+  A structured 10-day self-paced learning guide for Product Managers to achieve
+  AI mastery. Use this skill whenever a PM (or anyone in a product role) asks
+  about learning AI, understanding LLMs, building AI products, using AI tools,
+  evaluating AI systems, or wants a roadmap for becoming an AI-fluent PM. Trigger
+  this skill for requests like "teach me AI as a PM", "AI learning plan for
+  product managers", "how do I get started with AI", "what should a PM know about
+  LLMs", or any query where someone in a non-engineering role wants structured AI
+  education. Also trigger for individual day topics (e.g. "explain RAG to me",
+  "what is vibe coding", "how do I evaluate an LLM").
+---
+
+# 10-Day AI Mastery for Product Managers
+
+A structured, practical curriculum that takes a PM from zero to AI-fluent in 10 days.
+Each day is a focused module. Run them sequentially, or jump to the day matching
+your current knowledge gap.
+
+---
+
+## How to Use This Skill
+
+When a user triggers this skill:
+1. **Ask where they want to start** — full 10-day journey, or a specific day/topic?
+2. **Teach the day's content** using the structure below — concept → why it matters for PMs → practical exercise.
+3. **End each day** with a "PM Takeaway" and a recommended action.
+4. Offer to continue to the next day or go deeper on any topic.
+
+---
+
+## Day 1 — LLM Fundamentals & Context Engineering
+
+### Concepts to Cover
+- What is a Large Language Model (LLM)? Transformer architecture in plain English.
+- Tokens, temperature, top-p — what they mean for product behavior.
+- **Context Window**: The LLM's working memory. Everything the model "sees" in one call.
+- **Context Engineering**: The practice of deliberately designing what goes into that window — system prompts, examples, retrieved documents, conversation history.
+- Prompt anatomy: System prompt / User message / Assistant prefill.
+- Why context quality directly determines output quality.
+
+### PM Relevance
+- Every AI feature you ship is ultimately a context engineering problem.
+- "Why is the AI giving bad answers?" = usually a context problem, not a model problem.
+- Understanding context limits helps you scope features and set user expectations.
+
+### Practical Exercise
+> Write a system prompt for an AI customer support bot for your product.
+> Include: persona, guardrails, tone, and 2 examples of good responses.
+
+### PM Takeaway
+*The model is a reasoning engine. You are the architect of what it reasons about.*
+
+---
+
+## Day 2 — RAG, Distillation, and AI PM Fundamentals
+
+### Concepts to Cover
+
+**RAG (Retrieval-Augmented Generation)**
+- Problem it solves: LLMs have stale knowledge and limited context windows.
+- How it works: Query → retrieve relevant documents → inject into context → generate.
+- Key components: Embedding model, Vector database, Retriever, Generator.
+- When to use RAG vs. fine-tuning vs. prompt engineering.
+
+**Distillation**
+- Training a smaller "student" model to mimic a larger "teacher" model.
+- Why it matters: Smaller, faster, cheaper models for production.
+- PM implication: Cost vs. capability tradeoff in model selection.
+
+**AI PM Fundamentals**
+- How AI PM differs from traditional PM: probabilistic outputs, eval-driven development.
+- The AI product development loop: Problem → Data → Model → Eval → Ship → Monitor.
+- Key metrics for AI products: accuracy, latency, cost per call, hallucination rate.
+- Building trust with users of AI features.
+
+### Practical Exercise
+> Map a feature in your product where RAG would improve quality.
+> Define: What is the knowledge source? What is the query? What's the expected output?
+
+### PM Takeaway
+*RAG is the most practical AI architecture decision you'll make as a PM. Learn it deeply.*
+
+---
+
+## Day 3 — Skills to Build AI Agents
+
+### Concepts to Cover
+- **What is an AI Agent?** An LLM that can take actions, not just generate text.
+- Agent anatomy: LLM brain + Tools + Memory + Orchestration loop.
+- **Tools**: Functions the agent can call (search, code execution, API calls, file read/write).
+- **Memory types**: In-context (short-term), External DB (long-term), Episodic.
+- **Agentic patterns**: ReAct (Reason + Act), Plan-then-Execute, Multi-agent.
+- **When agents go wrong**: Hallucinated tool calls, infinite loops, prompt injection.
+- Human-in-the-loop design: When to pause for approval vs. full autonomy.
+
+### PM Relevance
+- Agents are the next frontier of AI products — from chatbots to autonomous workflows.
+- As PM, you define the agent's scope, tools, and trust boundary.
+- Failure modes in agents = product liability. You must design guardrails.
+
+### Practical Exercise
+> Design a simple agent for your domain.
+> Define: Goal, available tools (max 3), memory needs, and one human checkpoint.
+
+### PM Takeaway
+*An agent is only as reliable as its tools, memory, and the guardrails you build around it.*
+
+---
+
+## Day 4 — Fundamentals of Claude Code
+
+### Concepts to Cover
+- **Claude Code**: Anthropic's agentic coding tool. Runs in your terminal, operates on your codebase.
+- How it differs from Copilot/Cursor: It's an agent, not an autocomplete — it reads, edits, runs code.
+- **CLAUDE.md**: The project context file that tells Claude Code about your codebase conventions.
+- Core use cases: Refactoring, debugging, writing tests, explaining legacy code, scaffolding new features.
+- **Slash commands**: `/add-dir`, `/clear`, `/compact` — controlling the agent's context.
+- Safe usage patterns: Review diffs before accepting, use git checkpoints, scope tasks narrowly.
+- **PM use case**: Non-engineers using Claude Code for prototyping, data analysis, automation.
+
+### Practical Exercise
+> Install Claude Code (if not already). Run it on any codebase or script you have access to.
+> Ask it: "Explain what this code does" and "Write a test for this function."
+
+### PM Takeaway
+*Claude Code changes what PMs can prototype and validate independently — without waiting for engineers.*
+
+---
+
+## Day 5 — LLM Evaluations
+
+### Concepts to Cover
+- **Why evals matter**: You cannot improve what you cannot measure. Evals are the PM's compass.
+- **Eval types**:
+  - *Human eval*: Gold standard, expensive, slow.
+  - *LLM-as-judge*: Use a model to grade another model's outputs. Scalable.
+  - *Automated/unit evals*: Exact match, regex, schema validation for structured outputs.
+  - *A/B testing in production*: User behavior as the eval signal.
+- **What to evaluate**: Correctness, groundedness (no hallucination), tone, latency, cost.
+- **Eval-driven development**: Write evals before you ship. Regression test every prompt change.
+- Common pitfalls: Overfitting to evals, evaluating the wrong thing, no baseline.
+
+### Practical Exercise
+> For an AI feature you're building or using, define 5 test cases.
+> For each: input, expected output, pass/fail criterion.
+
+### PM Takeaway
+*A prompt change without an eval is a deployment without a test. Never ship blind.*
+
+---
+
+## Day 6 — Using Antigravity and Google AI Studio
+
+### Concepts to Cover
+
+**Google AI Studio**
+- Free browser-based tool to experiment with Gemini models.
+- Key features: System prompt editor, multi-turn chat, structured output mode, file uploads.
+- Use cases for PMs: Rapid prototyping, prompt testing, multimodal experiments (images, video, audio).
+- Exporting to API: How to take a working prompt from AI Studio to production.
+
+**Antigravity** *(AI-assisted product workflow tooling)*
+- Context: A category of no-code/low-code AI tools that wrap LLM capabilities for non-engineers.
+- How to evaluate tools in this category: Does it expose the system prompt? Can you control context? What's the eval story?
+- PM lens: These tools accelerate prototyping but abstract away control — know the tradeoffs.
+
+### Practical Exercise
+> Open Google AI Studio. Build a structured output prompt that extracts key fields from a user feedback message (e.g., sentiment, feature mentioned, urgency).
+
+### PM Takeaway
+*AI Studio is your sandbox. Use it to validate ideas in hours, not sprints.*
+
+---
+
+## Day 7 — Vibe Coding
+
+### Concepts to Cover
+- **What is Vibe Coding?** Building software by describing intent to an AI, iterating on output, without writing code directly.
+- Tools: Claude Code, Cursor, v0 (by Vercel), Replit AI, Bolt.new.
+- The vibe coding loop: Describe → Generate → Review → Refine → Test.
+- **What PMs can build**: Prototypes, internal tools, data dashboards, scripts, API mockups.
+- Limitations: AI-generated code needs review; security and scalability aren't guaranteed.
+- **Prompt patterns for vibe coding**: Be specific about tech stack, constraints, and desired behavior. Show examples.
+
+### Practical Exercise
+> Use Claude.ai or Cursor to build a simple tool:
+> e.g., "A web form that takes user feedback and classifies it as bug/feature request/compliment using an LLM."
+> Get it to a working prototype in under 2 hours.
+
+### PM Takeaway
+*Vibe coding doesn't make you an engineer. It makes you dangerous enough to validate ideas before investing engineering time.*
+
+---
+
+## Day 8 — Claude Code in Practice
+
+### Concepts to Cover
+- **Advanced Claude Code patterns**: Multi-file edits, running tests in a loop, git integration.
+- **SKILL.md / CLAUDE.md**: How to encode project standards so the agent follows your conventions.
+- **Agentic task delegation**: Breaking a large task into sub-tasks, supervising the agent.
+- **Real PM workflows**:
+  - Analyzing a CSV of user feedback with Claude Code.
+  - Generating a PRD draft from an interview transcript.
+  - Building a competitive analysis scraper.
+  - Writing and running SQL against a local database.
+- Knowing when to hand off to an engineer vs. continue solo.
+
+### Practical Exercise
+> Give Claude Code a real task from your backlog:
+> e.g., "Read this CSV of support tickets and give me the top 10 recurring themes."
+> Evaluate the output quality and refine the prompt.
+
+### PM Takeaway
+*Claude Code's power is proportional to the quality of context you give it. Invest in your CLAUDE.md.*
+
+---
+
+## Day 9 — OpenClaw for Product Managers
+
+### Concepts to Cover
+- **What is OpenClaw?** A framework/toolset for PMs to leverage AI across the product lifecycle.
+- Core capabilities (PM lens):
+  - *Discovery*: AI-assisted user interview analysis, JTBD synthesis.
+  - *Definition*: Auto-generating PRDs, user stories, acceptance criteria from briefs.
+  - *Delivery*: AI-assisted sprint planning, dependency mapping.
+  - *Measurement*: Connecting product metrics to AI-generated insights.
+- **Workflow automation for PMs**: Chaining prompts for recurring tasks (weekly reports, backlog grooming, release notes).
+- Building your own PM AI toolkit: Custom GPTs / Claude Projects / prompt libraries.
+
+### Practical Exercise
+> Build a personal prompt library for your top 3 recurring PM tasks.
+> For each: write a reusable system prompt + user message template.
+
+### PM Takeaway
+*The best AI-powered PM isn't the one who uses the most tools — it's the one with the sharpest prompts for their specific context.*
+
+---
+
+## Day 10 — The Complete AI PM Roadmap
+
+### Concepts to Cover
+- **Synthesizing the 10 days**: How LLMs → RAG → Agents → Evals → Tools form a coherent product system.
+- **AI PM career roadmap**:
+  - *Foundational*: Prompt engineering, evals, RAG, agents (Days 1–5).
+  - *Applied*: AI tooling, vibe coding, Claude Code (Days 6–8).
+  - *Strategic*: AI product strategy, FinOps, governance, trust & safety (beyond this course).
+- **AI product principles** every PM should internalize:
+  1. Determinism vs. probabilism — know which your feature needs.
+  2. Evals before launch, always.
+  3. Context is the product.
+  4. Latency and cost are features, not just engineering concerns.
+  5. Human-in-the-loop is a design pattern, not a failure mode.
+- **Where to go next**: Recommended resources by specialization.
+- **Building your AI portfolio**: What projects to work on, what to publish.
+
+### Practical Exercise
+> Write your personal "AI PM north star" document:
+> - 3 AI capabilities you will own deeply in the next 6 months.
+> - 1 AI product you will ship or prototype.
+> - Your eval framework for your current product.
+
+### PM Takeaway
+*AI is not a feature you add to a roadmap. It's a capability you build into how you think about every problem.*
+
+---
+
+## Quick Reference: Key Terms Glossary
+
+| Term | Plain English Definition |
+|------|--------------------------|
+| LLM | A model trained on text that predicts the next token — the engine behind AI products. |
+| Context Window | Everything the LLM can "see" in one call. Larger = more expensive but more capable. |
+| Context Engineering | Designing what goes into the context window to get the best output. |
+| RAG | Retrieve relevant docs at query time and inject them into context. Solves stale knowledge. |
+| Distillation | Training a small model to behave like a big model. Cheaper in production. |
+| Agent | An LLM that can call tools and take actions in a loop, not just generate text. |
+| Eval | A test that measures whether an AI output meets a defined quality bar. |
+| Vibe Coding | Building software by describing intent to AI, iterating without writing code directly. |
+| CLAUDE.md | A project context file that tells Claude Code your conventions and constraints. |
+| LLM-as-Judge | Using one LLM to evaluate the outputs of another. Scalable eval pattern. |
+| Token | The unit of text an LLM processes. ~4 chars or ~0.75 words. Costs money. |
+| Hallucination | When an LLM generates confident, plausible-sounding but factually wrong output. |
+
+---
+
+## Delivery Instructions for Claude
+
+When running this skill interactively:
+- **Default mode**: Ask the user which day to start on, or offer to run the full sequence.
+- **Teaching style**: Concept → PM relevance → example → exercise. Keep it applied.
+- **Depth calibration**: If the user is technical, go deeper on architecture. If non-technical, use analogies and skip implementation details.
+- **After each day**: Ask "Ready for Day N+1, or want to go deeper on anything here?"
+- **For individual topic queries**: Jump directly to the relevant day section and teach that module.
+- **Always end with the PM Takeaway** — it's the one-line anchor the user should remember.
